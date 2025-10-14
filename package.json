@@ -1,0 +1,36 @@
+{
+  "name": "spotify-analog",
+  "homepage": "https://oscar223Po.github.io/spotify-analog",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview",
+    "predeploy": "bun run build",
+    "deploy": "gh-pages -d dist"
+  },
+  "dependencies": {
+    "@tailwindcss/vite": "^4.1.14",
+    "dayjs": "^1.11.18",
+    "jsmediatags": "^3.9.7",
+    "lucide-react": "^0.544.0",
+    "mobx": "^6.15.0",
+    "mobx-react-lite": "^4.1.1",
+    "mobx-react-observer": "^1.1.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "tailwindcss": "^4.1.14"
+  },
+  "devDependencies": {
+    "@types/node": "^24.7.0",
+    "@types/react": "^18.0.28",
+    "@types/react-dom": "^18.0.11",
+    "@vitejs/plugin-react": "^5.0.4",
+    "gh-pages": "^6.3.0",
+    "sass": "^1.93.2",
+    "typescript": "^4.9.3",
+    "vite": "^7.1.9"
+  }
+}
