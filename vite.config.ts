@@ -22,5 +22,3 @@ export default defineConfig({
 		},
 	},
 })
-
-/* TIMECODE — 2:45:38 */
