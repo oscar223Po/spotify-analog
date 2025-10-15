@@ -26,7 +26,7 @@ function App() {
 			/>
 			<div className="relative">
 				<img
-					src="/banner.jpg"
+					src="/spotify-analog/banner.jpg"
 					alt="Banner"
 					className="rounded-xl"
 				/>
