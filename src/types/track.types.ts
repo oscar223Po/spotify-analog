@@ -4,6 +4,6 @@ export interface ITrack {
 	name: string
 	file: string
 	artist: IArtist
-	// cover: string
+	cover: string
 	duration: number // in seconds
 }

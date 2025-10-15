@@ -5,22 +5,32 @@
 
 		color: var(--color-primary);
 	}
-	> p {
+
+	> button {
 		opacity: 0.65;
-		line-height: 2;
-		text-align: left;
-		position: relative;
 		margin-bottom: 0.3rem;
 		transition: opacity 0.3s ease-in-out;
+		text-align: left;
+
+		&:hover {
+			opacity: 1;
+		}
+
 		&.active {
 			opacity: 1;
 			font-weight: 500;
 		}
-		.icon {
-			position: absolute;
-			left: -1rem;
-			top: 0.7rem;
-			color: var(--color-primary);
+
+		> p {
+			position: relative;
+			line-height: 2;
+
+			.icon {
+				position: absolute;
+				left: -1rem;
+				top: 0.7rem;
+				color: var(--color-primary);
+			}
 		}
 	}
 }

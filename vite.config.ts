@@ -15,7 +15,7 @@ export default defineConfig({
 		}),
 		tailwindcss(),
 	],
-	base: "/spotify-analog",
+	// base: "/spotify-analog",
 	resolve: {
 		alias: {
 			'@': path.resolve(__dirname, './src'),
@@ -23,4 +23,4 @@ export default defineConfig({
 	},
 })
 
-/* TIMECODE — 2:28:01 */
+/* TIMECODE — 2:45:38 */
