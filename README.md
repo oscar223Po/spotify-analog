@@ -1,6 +1,6 @@
 # 🎧 Spotify Clone — Personal Portfolio Website
 
-Spotify Clone — a modern, fully responsive music web application. It delivers an immersive listening experience where every beat, lyric, and player element is synchronized in real time. Users can explore tracks, create custom playlists, and enjoy seamless audio playback through an elegant, developer-crafted interface. Designed for smooth performance, scalability, and a clean user experience — this project reflects the power of modern front-end engineering.
+Spotify Clone — a modern music web application. It delivers an immersive listening experience where every beat, lyric, and player element is synchronized in real time. Users can explore tracks, search with filter, create custom playlists, and enjoy seamless audio playback through an elegant, developer-crafted interface. Designed for smooth performance, scalability, and a clean user experience — this project reflects the power of modern front-end engineering.
 
 ---
 
