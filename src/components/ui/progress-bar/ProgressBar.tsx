@@ -1,5 +1,4 @@
 import { transformDuration } from '@/utils/transform-duration'
-import { useCallback, useState } from 'react'
 
 interface Props {
 	currentValue: number
@@ -15,73 +14,43 @@ export function ProgressBar({
 	value,
 	progress,
 	onSeek,
-	isTextDisplayed = false,
+	isTextDisplayed,
 	isThumbDisplayed = true
 }: Props) {
-	const [isDragging, setIsDragging] = useState(false)
-	const [tempValue, setTempValue] = useState<number>(0)
-
-	const handleChange = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
-		const val = +e.target.value
-		setTempValue(val)
-		setIsDragging(true)
-	}, [])
-
-	const handleCommit = useCallback(() => {
-		if (isDragging) {
-			onSeek(tempValue)
-			setIsDragging(false)
-		}
-	}, [isDragging, tempValue, onSeek])
-
-	const displayValue = isDragging ? tempValue : currentValue
-	const displayProgress = (displayValue / value) * 100 || 0
-
 	return (
-		<div className="flex items-center gap-4 select-none">
+		<div className="flex items-center gap-5">
 			{isTextDisplayed && (
-				<span className="w-10 text-sm text-white/70">
-					{transformDuration(displayValue)}
-				</span>
+				<span className="w-10">{transformDuration(currentValue)}</span>
 			)}
 
-			<div className="relative w-full h-2 flex items-center">
-				{/* Прогресс фона */}
-				<div className="absolute top-1/2 left-0 w-full h-[3px] bg-white/20 rounded-full -translate-y-1/2" />
-
-				{/* Активный прогресс */}
+			<div className="bg-white/20 w-full rounded relative h-1">
 				<div
-					className="absolute top-1/2 left-0 h-[3px] rounded-full bg-gradient-to-r from-primary to-secondary -translate-y-1/2 pointer-events-none"
-					style={{ width: `${displayProgress}%` }}
+					className="absolute top-0 left-0 h-full rounded bg-gradient-to-r from-primary to-secondary"
+					style={{
+						width: `${progress}%`
+					}}
 				/>
 
-				{/* Кастомный круг */}
 				{isThumbDisplayed && (
 					<div
-						className="absolute top-1/2 w-3.5 h-3.5 rounded-full bg-secondary shadow-sm -translate-x-1/2 -translate-y-1/2 pointer-events-none transition-transform duration-150"
-						style={{ left: `${displayProgress}%` }}
+						className="w-3.5 h-3.5 bg-secondary rounded-full absolute top-1/2 -translate-y-1/2 -translate-x-1/2"
+						style={{
+							left: `${progress}%`
+						}}
 					/>
 				)}
 
-				{/* Range input */}
 				<input
 					type="range"
 					min={0}
-					max={value}
-					step={1}
-					value={displayValue}
-					onChange={handleChange}
-					onMouseUp={handleCommit}
-					onTouchEnd={handleCommit}
-					className="absolute top-0 left-0 w-full h-full appearance-none bg-transparent cursor-pointer z-20 focus:outline-none"
-					style={{ WebkitTapHighlightColor: 'transparent' }}
+					max={isNaN(value) ? 0 : value}
+					onChange={e => onSeek(+e.target.value)}
+					value={isNaN(currentValue) ? 0 : currentValue}
 				/>
 			</div>
 
 			{isTextDisplayed && (
-				<span className="w-10 text-sm text-white/50 text-right">
-					{transformDuration(value)}
-				</span>
+				<span className="text-white/50">{transformDuration(value)}</span>
 			)}
 		</div>
 	)

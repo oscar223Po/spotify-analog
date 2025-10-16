@@ -15,7 +15,7 @@ export default defineConfig({
 		}),
 		tailwindcss(),
 	],
-	base: "/spotify-analog",
+	base: "/spotify-analog/",
 	resolve: {
 		alias: {
 			'@': path.resolve(__dirname, './src'),
